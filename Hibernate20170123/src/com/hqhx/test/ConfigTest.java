@@ -25,11 +25,16 @@ public class ConfigTest {
 		Session session=sf.openSession();
 		Transaction ts=session.beginTransaction();
 		//创建一个Dept对象
-		Dept dept=new Dept(22,"运营部","陕西");
-		session.save(dept);
-		ts.commit();
+		Dept dept=new Dept(10,"运营部","陕西");//瞬时态
+		session.save(dept);//持久化状态
+		ts.commit();//把session中的数据同步到数据库中
+		
+		//select deptno,dname,loc from dept where deptno=11
+		Dept d=(Dept) session.get(Dept.class, 11);
+		System.out.println(d);
 		//释放资源
 		session.close();
+		//dept d对处于脱管状态
 		sf.close();
 	}
 	

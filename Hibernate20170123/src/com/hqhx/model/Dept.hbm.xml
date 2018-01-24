@@ -4,8 +4,9 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">    
 <hibernate-mapping package="com.hqhx.model">
 <!-- 配置Dept类和哪个表对应 -->
-<class name="Dept" table="dept" catalog="company">
-<!-- 配置主标识符 name="deptno"对象属性名 column=""表字段名-->
+<!--  lazy="false":只对session.load起作用 -->
+<class name="Dept" table="dept" dynamic-update="true" catalog="company">
+<!-- 配置主标识符 name="deptno"对象属性名 column=""表字段名--> 
 <id name="deptno" column="deptno" type="java.lang.Integer" length="20">
 <!-- 生成策略 :主键由外部程序负责生成，在save()之前必须指定一个-->
 <generator class="assigned"></generator>

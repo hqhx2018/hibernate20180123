@@ -1,11 +1,14 @@
 package com.hqhx.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 public class Dept implements Serializable{
 	private Integer deptno;
 	private String dname;
 	private String loc;
+	
+	
 	public Dept() {
 		super();
 	}
