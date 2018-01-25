@@ -15,6 +15,11 @@
 <!-- 配置其他属性 -->
 <property name="dname" column="dname" type="java.lang.String" length="20"></property>
 <property name="loc" column="loc" type="java.lang.String" length="20"></property>
-</class>
 
+<!-- 配置set集合 -->
+<set name="emps">
+<key column="deptno"></key>
+<one-to-many class="Emp" />
+</set>
+</class>
 </hibernate-mapping>

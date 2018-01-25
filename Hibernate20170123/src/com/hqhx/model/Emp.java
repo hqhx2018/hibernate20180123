@@ -1,6 +1,7 @@
 package com.hqhx.model;
 
 import java.util.Date;
+import java.util.Set;
 
 public class Emp {
 
@@ -8,37 +9,40 @@ public class Emp {
 	private String ename;
 	private String sex;
 	private String job;
-	private Integer mgr;
+	private Emp mgr;//表示当前员工的上司
+	private Set<Emp> emps;//表示当前员工的下属
 	private Double salary;
 	private Dept dept;//员工所在的部门
 	private Date hiredate;//入职日期
 	
+	
+	
 	public Emp(Integer empno, String ename, String sex, String job,
-			Integer mgr, Double salary, Date hiredate) {
+			Double salary, Date hiredate) {
 		super();
 		this.empno = empno;
 		this.ename = ename;
 		this.sex = sex;
 		this.job = job;
-		this.mgr = mgr;
 		this.salary = salary;
 		this.hiredate = hiredate;
+	}
+	public Set<Emp> getEmps() {
+		return emps;
+	}
+	public void setEmps(Set<Emp> emps) {
+		this.emps = emps;
+	}
+	public void setMgr(Emp mgr) {
+		this.mgr = mgr;
 	}
 	public Emp() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Emp(Integer empno, String ename, String sex, String job,
-			Integer mgr, Double salary, Dept dept, Date hiredate) {
-		super();
-		this.empno = empno;
-		this.ename = ename;
-		this.sex = sex;
-		this.job = job;
-		this.mgr = mgr;
-		this.salary = salary;
-		this.dept = dept;
-		this.hiredate = hiredate;
+	
+	public Emp getMgr() {
+		return mgr;
 	}
 	public Date getHiredate() {
 		return hiredate;
@@ -70,12 +74,7 @@ public class Emp {
 	public void setJob(String job) {
 		this.job = job;
 	}
-	public Integer getMgr() {
-		return mgr;
-	}
-	public void setMgr(Integer mgr) {
-		this.mgr = mgr;
-	}
+	
 	public Double getSalary() {
 		return salary;
 	}

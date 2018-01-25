@@ -7,7 +7,7 @@ public class Dept implements Serializable{
 	private Integer deptno;
 	private String dname;
 	private String loc;
-	
+	private Set<Emp> emps;//表示该部门下所有的员工
 	
 	public Dept() {
 		super();
@@ -35,6 +35,14 @@ public class Dept implements Serializable{
 	}
 	public void setLoc(String loc) {
 		this.loc = loc;
+	}
+	
+	
+	public Set<Emp> getEmps() {
+		return emps;
+	}
+	public void setEmps(Set<Emp> emps) {
+		this.emps = emps;
 	}
 	@Override
 	public String toString() {

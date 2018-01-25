@@ -1,7 +1,9 @@
 package com.hqhx.test;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -14,6 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.hqhx.model.Dept;
+import com.hqhx.model.Emp;
 
 public class DeptTest {
 
@@ -144,6 +147,50 @@ public class DeptTest {
 		session.update(d);
 		session.beginTransaction().commit();
 	}
+	
+	@Test
+	public void testListDept(){
+		Session session=sf.openSession();
+		Dept dept=(Dept) session.get(Dept.class, 27);
+		System.out.println(dept.getDeptno());
+		System.out.println(dept.getDname());
+		System.out.println(dept.getLoc());
+		
+	}
+	
+	
+	@Test
+	public void testSelectCount(){
+		Session session=sf.openSession();
+		Dept dept=(Dept) session.get(Dept.class, 27);
+		int i=dept.getEmps().size();
+		System.out.println(i);
+		Set<Emp> emps=dept.getEmps();
+		for (Emp emp : emps) {
+			System.out.println(emp);
+		}
+	}
+	
+	@Test
+	public void testUpdateDept(){
+		Session session=sf.openSession();
+		Dept dept=new Dept(10,"Æó»®²¿","ÏÌÑô");
+		session.update(dept);
+		session.beginTransaction().commit();
+		session.close();
+	}
+	
+	
+	@Test
+	public void testDeleteDept(){
+		Session session=sf.openSession();
+		Dept dept=new Dept();
+		dept.setDeptno(11);
+		session.delete(dept);
+		session.beginTransaction().commit();
+		session.close();
+	}
+	
 	
 	
 	@After

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">    
+<hibernate-mapping package="com.hqhx.model">
+<class name="Role" table="role">
+<id name="rid" column="rid">
+<generator class="native"></generator>
+</id>
+
+<property name="rname" column="rname"></property>
+
+
+<set name="modules" table="role_module">
+<!-- 表示Role在role_module中的外键 -->
+<key column="rid"></key>
+<!-- column="mid":Module在role_module中的外键 -->
+<many-to-many class="Module" column="mid"></many-to-many>
+</set>
+
+
+
+</class>
+</hibernate-mapping>
