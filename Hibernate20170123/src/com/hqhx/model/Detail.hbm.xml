@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">    
+<hibernate-mapping package="com.hqhx.model">
+<class name="Detail" table="detail">
+<id name="did" column="did">
+<generator class="foreign">
+<param name="property">tuser</param>
+</generator>
+</id>
+
+<property name="trueName" column="trueName"></property>
+<property name="sex" column="sex"></property>
+<property name="email" column="email"></property>
+
+
+<one-to-one name="user" class="User" constrained="true"></one-to-one>
+</class>
+</hibernate-mapping>

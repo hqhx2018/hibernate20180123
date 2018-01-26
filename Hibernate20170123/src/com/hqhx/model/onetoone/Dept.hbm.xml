@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">    
-<hibernate-mapping package="com.hqhx.model">
+<hibernate-mapping package="com.hqhx.model.onetoone">
 <!-- 配置Dept类和哪个表对应 -->
 <!--  lazy="false":只对session.load起作用 -->
 <class name="Dept" table="dept" dynamic-update="true" catalog="bbbb">
@@ -15,11 +15,8 @@
 <!-- 配置其他属性 -->
 <property name="dname" column="dname" type="java.lang.String" length="20"></property>
 <property name="loc" column="loc" type="java.lang.String" length="20"></property>
+<!-- Emp关联对像的属性名property-ref="dept" -->
+<one-to-one name="emp" class="Emp" foreign-key="deptno" property-ref="dept"></one-to-one>
 
-<!-- 配置set集合 -->
-<set name="emps">
-<key column="deptno"></key>
-<one-to-many class="Emp" />
-</set>
 </class>
 </hibernate-mapping>

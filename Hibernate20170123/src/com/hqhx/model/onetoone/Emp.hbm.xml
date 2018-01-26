@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">    
-<hibernate-mapping package="com.hqhx.model">
+<hibernate-mapping package="com.hqhx.model.onetoone">
 <!-- 配置Dept类和哪个表对应 -->
 <!--  lazy="false":只对session.load起作用 -->
 <class name="Emp" table="emp" dynamic-update="true" catalog="bbbb">
@@ -20,7 +20,7 @@
 <property name="hiredate" column="hiredate" type="java.util.Date"></property>
 
 <!-- 配置关联Dept对象 -->
-<many-to-one name="dept" class="Dept"  column="deptno" lazy="false" ></many-to-one>
+<many-to-one name="dept" class="Dept"  column="deptno" lazy="false" unique="true"></many-to-one>
 
 
 <!-- 配置关联Emp对象上司对象 -->
