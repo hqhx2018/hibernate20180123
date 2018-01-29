@@ -5,7 +5,7 @@
 <hibernate-mapping package="com.hqhx.model">
 <!-- 配置Dept类和哪个表对应 -->
 <!--  lazy="false":只对session.load起作用 -->
-<class name="Emp" table="emp" dynamic-update="true" catalog="bbbb">
+<class name="Emp" table="emp" dynamic-update="true" catalog="company">
 <!-- 配置主标识符 name="empno"对象属性名 column=""表字段名--> 
 <id name="empno" column="empno" type="java.lang.Integer" length="20">
 <!-- 生成策略 :主键由外部程序负责生成，在save()之前必须指定一个-->
@@ -16,15 +16,15 @@
 <property name="ename" column="ename" type="java.lang.String" length="20"></property>
 <property name="sex" column="sex" type="java.lang.String" length="20"></property>
 <property name="job" column="job" type="java.lang.String" length="20"></property>
-<property name="salary" column="salary" type="java.lang.Double" length="20"></property>
+<property name="salary" column="salary" type="java.lang.Double"></property>
 <property name="hiredate" column="hiredate" type="java.util.Date"></property>
 
 <!-- 配置关联Dept对象 -->
-<many-to-one name="dept" class="Dept"  column="deptno" lazy="false" ></many-to-one>
+<many-to-one name="dept" class="Dept"  column="deptno" ></many-to-one>
 
 
 <!-- 配置关联Emp对象上司对象 -->
-<many-to-one name="mgr" class="Emp" column="mgr" lazy="false" ></many-to-one>
+<many-to-one name="mgr" class="Emp" column="mgr"  ></many-to-one>
 
 <!-- 配置该员工的下属 -->
 <set name="emps">

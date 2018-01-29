@@ -93,6 +93,12 @@ public class Emp {
 				+ ", job=" + job + ", mgr=" + mgr + ", salary=" + salary
 				+ ", dept=" + dept + ", hiredate=" + hiredate + "]";
 	}*/
+	@Override
+	public String toString() {
+		return "Emp [empno=" + empno + ", ename=" + ename + ", sex=" + sex
+				+ ", job=" + job + ", salary=" + salary + ", hiredate="
+				+ hiredate + "]";
+	}
 	
 	
 	
