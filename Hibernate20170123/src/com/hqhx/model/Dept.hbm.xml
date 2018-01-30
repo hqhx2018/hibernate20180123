@@ -6,6 +6,9 @@
 <!-- 配置Dept类和哪个表对应 -->
 <!--  lazy="false":只对session.load起作用 -->
 <class name="Dept" table="dept" dynamic-update="true" catalog="company">
+<!-- 配置类级别的缓存 -->
+<cache usage="read-write"/>
+
 <!-- 配置主标识符 name="deptno"对象属性名 column=""表字段名--> 
 <id name="deptno" column="deptno" type="java.lang.Integer" length="20">
 <!-- 生成策略 :主键由外部程序负责生成，在save()之前必须指定一个-->
@@ -18,6 +21,7 @@
 
 <!-- 配置set集合 -->
 <set name="emps" fetch="join">
+
 <key column="deptno"></key>
 <one-to-many class="Emp" />
 </set>

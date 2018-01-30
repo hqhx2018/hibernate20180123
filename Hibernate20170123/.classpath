@@ -13,6 +13,7 @@
 	<classpathentry kind="lib" path="hibernate/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="hibernate/slf4j-log4j12-1.6.1.jar"/>
 	<classpathentry kind="lib" path="hibernate/mysql-connector-java-5.0.6-bin.jar"/>
+	<classpathentry kind="lib" path="hibernate/c3p0-0.8.5.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

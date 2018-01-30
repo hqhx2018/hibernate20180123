@@ -19,6 +19,34 @@
 <!-- 格式化sql语句 -->
 <property name="hibernate.format_sql">true</property>
 <property name="hibernate.hbm2ddl.auto">update</property>
+
+<!-- 配置session的管理 -->
+<property name="hibernate.current_session_context_class">thread</property>
+
+
+<!-- 配置c3p0连接池 -->
+<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>   
+<!-- 最大连接数 -->   
+<property name="hibernate.c3p0.max_size">20</property>  
+<!-- 最小连接数 -->   
+<property name="hibernate.c3p0.min_size">10</property>  
+<!-- 获得连接的超时时间,如果超过这个时间,会抛出异常，单位毫秒 -->  
+<property name="hibernate.c3p0.timeout">120</property>   
+<!-- 最大的PreparedStatement的数量 -->
+<property name="hibernate.c3p0.max_statements">100</property>
+<!-- 每隔120秒检查连接池里的空闲连接 ，单位是秒-->
+<property name="hibernate.c3p0.idle_test_period">120</property>
+<!-- 当连接池里面的连接用完的时候，C3P0一下获取的新的连接数 -->
+<property name="hibernate.c3p0.acquire_increment">2</property>
+<!-- 每次都验证连接是否可用 -->   
+<property name="hibernate.c3p0.validate">false</property>
+
+
+<!-- 开启二级缓存 -->
+<property name="hibernate.cache.use_second_level_cache">true</property>
+<!-- 设置缓存的供应商 -->
+<property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+
 <!-- 配置映射文件 -->
 <mapping resource="com/hqhx/model/Dept.hbm.xml"/>
 <mapping resource="com/hqhx/model/Emp.hbm.xml"/>

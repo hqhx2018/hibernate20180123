@@ -24,13 +24,13 @@
 
 
 <!-- 配置关联Emp对象上司对象 -->
-<many-to-one name="mgr" class="Emp" column="mgr"  ></many-to-one>
+<!-- <many-to-one name="mgr" class="Emp" column="mgr"  ></many-to-one>
 
-<!-- 配置该员工的下属 -->
+配置该员工的下属
 <set name="emps">
 <key column="mgr"></key>
 <one-to-many class="Emp"/>
-</set>
+</set> -->
 </class>
 
 
